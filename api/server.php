@@ -1,6 +1,6 @@
 <?php
-
-if (isset($GET["getCpuLoad"])) {
+echo $_GET;
+if (isset($_GET["getCpuLoad"])) {
     $load = sys_getloadavg();
     echo $load[0];
 }
