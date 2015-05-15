@@ -28,9 +28,21 @@ $(document).ready(function() {
 
                     $('#cpu-load').html(html);
 
-                    $('#cpu-usage-pie-chart').easyPieChart({
-                        //your configuration goes here
-                    });
+                    $('#cpu-usage-pie-chart').easyPieChart(
+                    {
+                        "barColor":$('#cpu-usage-pie-chart').css(color),
+                        "trackColor":"rgba(0,0,0,0.04)",
+                        "scaleColor":!1,
+                        "lineCap":"butt",
+                        "lineWidth":parseInt(d/8.5),
+                        "animate":1500,
+                        "rotate":-90,
+                        "size":parseInt(25/8.5),
+                        "onStep":function(a,b,c){
+                            $(this.el).find(".percent").text(Math.round(c))
+                        }
+                    }
+                    );
                 }
 
             },
@@ -42,5 +54,13 @@ $(document).ready(function() {
     }
 
     window.setInterval(getCpuLoadFunc, 5000);
+    //$(".easy-pie-chart").each(function(){
+    //    var a=$(this),
+    //        b=a.css("color")||a.data("pie-color"),
+    //        c=a.data("pie-track-color")||"rgba(0,0,0,0.04)",
+    //        d=parseInt(a.data("pie-size"))||25;
+    //}
+    //a.easyPieChart({"barColor":b,"trackColor":c,"scaleColor":!1,"lineCap":"butt","lineWidth":parseInt(d/8.5),"animate":1500,"rotate":-90,"size":d,"onStep":function(a,b,c){$(this.el).find(".percent").text(Math.round(c))}})
+
 
 });
