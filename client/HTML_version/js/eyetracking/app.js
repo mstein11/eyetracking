@@ -8,7 +8,7 @@ $(document).ready(function() {
             url:'/api/server.php?getCpuLoad',
             method: 'GET',
             success: function(data) {
-                alert("success: cpu usage is: " + data);
+                console.log("success!: " + data)
             },
             error: function(data) {
                 console.log(data);
