@@ -28,7 +28,7 @@ $(document).ready(function() {
 
                     $('#cpu-load').html(html);
 
-                    $('#cpu-usage-pie-chart').easyPieChart(
+                    $('.cpu-usage-pie-chart').easyPieChart(
                     {
                         //"barColor":$('#cpu-usage-pie-chart').css(color),
                         "trackColor":"rgba(0,0,0,0.04)",
@@ -43,6 +43,8 @@ $(document).ready(function() {
                         //}
                     }
                     );
+
+                    isCpuDrawnOnce = !isCpuDrawnOnce;
                 }
 
             },
