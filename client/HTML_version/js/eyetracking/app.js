@@ -30,17 +30,17 @@ $(document).ready(function() {
 
                     $('#cpu-usage-pie-chart').easyPieChart(
                     {
-                        "barColor":$('#cpu-usage-pie-chart').css(color),
+                        //"barColor":$('#cpu-usage-pie-chart').css(color),
                         "trackColor":"rgba(0,0,0,0.04)",
                         "scaleColor":!1,
                         "lineCap":"butt",
-                        "lineWidth":parseInt(d/8.5),
+                        "lineWidth":parseInt(26/8.5),
                         "animate":1500,
                         "rotate":-90,
-                        "size":parseInt(25/8.5),
-                        "onStep":function(a,b,c){
-                            $(this.el).find(".percent").text(Math.round(c))
-                        }
+                        "size":parseInt(25/8.5)
+                        //"onStep":function(a,b,c){
+                        //    $(this.el).find(".percent").text(Math.round(c))
+                        //}
                     }
                     );
                 }
