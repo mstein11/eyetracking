@@ -56,9 +56,9 @@ $(document).ready(function() {
                     var html = '<div class="easy-pie-chart ram-usage-pie-chart txt-color-orangeDark" data-percent="'+data+'" data-pie-size="25">' +
                         '<span class="percent percent-sign">' + data + '</span>' +
                         '</div>' +
-                        '<span class="easy-pie-title"> Server Load <i class="fa fa-caret-up icon-color-bad"></i> </span> ';
+                        '<span class="easy-pie-title"> Ram Usage <i class="fa fa-caret-up icon-color-bad"></i> </span> ';
                     $('#ram-usage').html(html);
-                    ramPieChart = $('.cpu-usage-pie-chart');
+                    ramPieChart = $('.ram-usage-pie-chart');
                     ramPieChart.easyPieChart(
                         {
                             "trackColor":"rgba(0,0,0,0.04)",
@@ -87,6 +87,6 @@ $(document).ready(function() {
     }
 
     window.setInterval(getCpuLoadFunc, 5000);
-    window.setInterval(getRamUsage, 5000);
+    //window.setInterval(getRamUsage, 5000);
 
 });
