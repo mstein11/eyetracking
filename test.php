@@ -75,7 +75,7 @@ foreach ($arr1 as $value) {
     		echo "<td><a target=\"_blank\" href=\"/cam1\\".$value."\">cam1\\".$value."</a></td>";
 	}
 	if($arr2[$cnt]){
-		echo "<td><a target=\"_blank\" href=\"/cam2/\".$arr2[$cnt]."\">cam2\\".$arr2[$cnt]."</a></td>";
+		echo "<td><a target=\"_blank\" href=\"/cam2\\".$arr2[$cnt]."\">cam2\\".$arr2[$cnt]."</a></td>";
 	}
 	echo "</tr>";
 	$cnt++;
