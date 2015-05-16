@@ -4,6 +4,7 @@
 $(document).ready(function() {
     var cpuPieChart;
     var ramPieChart;
+    var discPieChart;
     var getCpuLoadFunc = function() {
         $.ajax({
             url:'/api/server.php?getCpuLoad',
@@ -86,7 +87,49 @@ $(document).ready(function() {
         });
     }
 
+    var getDiscUsage = function() {
+        $.ajax({
+            url:'/api/server.php?getDiscUsage',
+            method: 'GET',
+            success: function(data) {
+                console.log("success!: " + data)
+
+                if (!ramPieChart) {
+                    var html = '<div class="easy-pie-chart disc-usage-pie-chart txt-color-orangeDark" data-percent="'+data+'" data-pie-size="25">' +
+                        '<span class="percent percent-sign">' + data + '</span>' +
+                        '</div>' +
+                        '<span class="easy-pie-title"> Disc Usage <i class="fa fa-caret-up icon-color-bad"></i> </span> ';
+                    $('#disc-usage').html(html);
+                    discPieChart = $('.disc-usage-pie-chart');
+                    discPieChart.easyPieChart(
+                        {
+                            "trackColor":"rgba(0,0,0,0.04)",
+                            "scaleColor":!1,
+                            "lineCap":"butt",
+                            "lineWidth":parseInt(26/8.5),
+                            "animate":1500,
+                            "rotate":-90,
+                            "size":50,
+                            "onStep":function(a,b,c){
+                                $(this.el).find(".percent").text(Math.round(c*100)/100)
+                            }
+                        }
+                    );
+                } else {
+                    discPieChart.data('easyPieChart').update(data);
+                }
+
+            },
+            error: function(data) {
+                console.log(data);
+                //alert("error: cpu usage is: " + data);
+            }
+
+        });
+    }
+
     window.setInterval(getCpuLoadFunc, 5000);
     window.setInterval(getRamUsage, 5000);
+    window.setInterval(getDiscUsage, 5000);
 
 });

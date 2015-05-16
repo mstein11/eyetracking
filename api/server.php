@@ -16,3 +16,9 @@ if (isset($_GET["getRamUsage"])) {
 
     echo $memory_usage;
 }
+
+if (isset($_GET["getDiscUsage"])) {
+    $disFree = disk_free_space("/");
+    $diskTotal = disk_total_space("/");
+    echo ($disFree / $diskTotal)* 100;
+}
