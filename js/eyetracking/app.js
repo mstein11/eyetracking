@@ -1,6 +1,10 @@
 /**
  * Created by mariusstein on 15.05.15.
  */
+
+var startmotion;
+var stopmotion;
+
 $(document).ready(function() {
     var cpuPieChart;
     var ramPieChart;
@@ -131,5 +135,42 @@ $(document).ready(function() {
     window.setInterval(getCpuLoadFunc, 5000);
     window.setInterval(getRamUsage, 5000);
     window.setInterval(getDiscUsage, 5000);
+
+
+
+    $('#video-table').DataTable();
+
+    stopmotion = function stopmotion() {
+        $.ajax({
+            url:'/api/motion_controller.php?stop_motion',
+            method: 'GET',
+            success: function(data) {
+                $('#status-message').text(data);
+                $('#status-message').css("color:red");
+            },
+            error: function(data) {
+                console.log(data);
+                //alert("error: cpu usage is: " + data);
+            }
+
+        });
+    }
+
+    startmotion = function startmotion() {
+        $.ajax({
+            url:'/api/motion_controller.php?start_motion',
+            method: 'GET',
+            success: function(data) {
+                $('#status-message').text(data);
+                $('#status-message').css("color:#333");
+            },
+            error: function(data) {
+                console.log(data);
+                //alert("error: cpu usage is: " + data);
+            }
+
+        });
+    }
+
 
 });
