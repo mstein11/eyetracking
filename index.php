@@ -1,3 +1,6 @@
+<?php
+//$app = new Phalcon\Mvc\Micro();
+?>
 <html>
 <head>
 <link href="video-js/video-js.css" rel="stylesheet">
