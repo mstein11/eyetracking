@@ -87,6 +87,6 @@ $(document).ready(function() {
     }
 
     window.setInterval(getCpuLoadFunc, 5000);
-    //window.setInterval(getRamUsage, 5000);
+    window.setInterval(getRamUsage, 5000);
 
 });
