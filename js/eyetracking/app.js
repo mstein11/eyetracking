@@ -138,7 +138,17 @@ $(document).ready(function() {
 
 
 
-    $('#video-table').DataTable();
+    $('#video-table').DataTable({
+        "ajax":"/api/server.php?files",
+        "sAjaxDataProp":"",
+        "columns": [
+            { "data": "filename" },
+            { "data": "path_cam1" },
+            { "data": "path_cam2" },
+            { "data": "last_modified_cam1" },
+            { "data": "last_modified_cam2" }
+        ]
+    });
 
     stopmotion = function stopmotion() {
         $.ajax({
@@ -166,7 +176,20 @@ $(document).ready(function() {
             },
             error: function(data) {
                 console.log(data);
-                //alert("error: cpu usage is: " + data);
+            }
+
+        });
+    }
+
+    getFiles = function() {
+        $.ajax({
+            url:'/api/motion_controller.php?files',
+            method: 'GET',
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(data) {
+                console.log(data);
             }
 
         });
