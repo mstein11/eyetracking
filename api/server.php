@@ -1,7 +1,8 @@
 <?php
 if (isset($_GET["getCpuLoad"])) {
     $load = sys_getloadavg();
-    echo round(($load[0] / num_cpus()), 2);
+    $load1 = ($load[0] / num_cpus());
+    echo $load1;
 }
 
 if (isset($_GET["getRamUsage"])) {
