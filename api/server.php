@@ -31,7 +31,7 @@ if (isset($_GET["files"])) {
     echo $os;
 
     $arr1[] = array();
-    if ($handle1 = opendir('/www/cam1/')) {
+    if ($handle1 = opendir('var/www/cam1/')) {
         $cnt = 0;
         while (false !== ($entry = readdir($handle1))) {
             if(strlen($entry) > 4){
@@ -42,7 +42,7 @@ if (isset($_GET["files"])) {
         closedir($handle1);
     }
     $arr2[] = array();
-    if ($handle2 = opendir('/www/cam2/')) {
+    if ($handle2 = opendir('/var/www/cam2/')) {
         $cnt = 0;
         while (false !== ($entry = readdir($handle2))) {
             if(strlen($entry) > 4){
@@ -68,8 +68,8 @@ if (isset($_GET["files"])) {
         $element["filename"] = $value;
         $element["path_cam1"] = "/cam1/" . $value;
         $element["path_cam2"] = "/cam2/" . $value;
-        $element["last_modified_cam1"] = date("F d Y H:i:s.", filemtime("/www/cam1/" . $value));
-        $element["last_modified_cam2"] = date("F d Y H:i:s.", filemtime("/www/cam2/" . $value));
+        $element["last_modified_cam1"] = date("F d Y H:i:s.", filemtime("/var/www/cam1/" . $value));
+        $element["last_modified_cam2"] = date("F d Y H:i:s.", filemtime("/var/www/cam2/" . $value));
         $result[] =  $element;
     }
 
