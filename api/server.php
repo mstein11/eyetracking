@@ -119,3 +119,7 @@ function num_cpus()
 
     return $numCpus;
 }
+
+if (isset($_GET["numcpus"])) {
+    echo num_cpus();
+}
